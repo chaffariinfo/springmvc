@@ -3,12 +3,12 @@ agent any
 stages{
   stage('Build'){
     steps{
-    bat 'mvn clean install'
+    bat 'mvn compile'
     }
   }
-  stage('Test'){
+  stage('Reporting'){
     steps{
-    sh 'mvn test'
+    cucumber failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
     }
   }
 }
