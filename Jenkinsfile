@@ -3,6 +3,7 @@ agent any
 stages{
   stage('Build'){
     steps{
+    bat 'mvn sonar:sonar'  
     bat 'mvn compile'
     }
   }
